@@ -1,5 +1,6 @@
 package org.homeos.budget.models;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,8 +17,15 @@ public class BudgetItemTest {
         this.expectedTag = new Tag();
         this.testItem = new BudgetItem();
 
+        this.testItem.setId(1);
         this.expectedTag.setTagId(1);
         this.expectedTag.setTagName("Test Tag Name");
+    }
+
+    @After
+    public void tearDown() {
+        this.expectedTag = null;
+        this.testItem = null;
     }
 
     @Test
@@ -35,6 +43,11 @@ public class BudgetItemTest {
 
     @Test
     public void removeTag() {
+        this.testItem.addTag(this.expectedTag);
+
+        this.testItem.removeTag(this.expectedTag);
+
+        assertTrue("Tags should be empty", this.testItem.getTags().isEmpty());
     }
 
     @Test
@@ -52,7 +65,10 @@ public class BudgetItemTest {
 
     @Test
     public void equals() {
+        BudgetItem equals = new BudgetItem();
+        equals.setId(1);
 
+        assertTrue("Should be equal new item", this.testItem.equals(equals));
         
 
     }
