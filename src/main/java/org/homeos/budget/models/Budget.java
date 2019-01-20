@@ -30,12 +30,18 @@ public class Budget {
     private float totalExpenses;
     private float totalIncome;
 
+    public Budget() {
+        this.budgetItems = new ArrayList<>();
+        this.tags = new ArrayList<>();
+    }
 
 
     //public methods
     public void addBudgetItem(BudgetItem item) {
 
+
         this.budgetItems.add(item);
+
 
         if(item.getType() == BudgetItemType.EXPENSE)
             this.updateTotalExpense();
