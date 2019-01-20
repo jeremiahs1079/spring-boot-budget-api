@@ -13,7 +13,7 @@ public class BudgetItem {
     private float estimatedAmount;
     private float actualAmount;
     private boolean verified;
-    private ArrayList<Tag> tags;
+    private ArrayList<Tag> tags = new ArrayList<>();
     private BudgetItemType type;
 
     //public methods
