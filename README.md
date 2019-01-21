@@ -21,7 +21,7 @@ This data structure holds the information associated with a budget.
 * budgetItems - list of ```BudgetItem``` that are included on the budget
 * tags - lost of ```Tag``` that are include on the budget
 * completed - boolean value that says if the budget is complete
-* overBudget - boolean value that says if the budget id over (sum of expenses is greate then sum of incomes)
+* overBudget - boolean value that says if the budget id over (sum of expenses is greater then sum of incomes)
 ###### Example:
 ```json
 {
@@ -44,7 +44,7 @@ This data structure holds the information associated with a budget item. Budget 
 * estimatedAmount - the estimated amount of the budget item. This item is the amount that is initially set 
 fot the budget item and is an estimate.
 * actualAmount - the actual amount of the budget item. This item is the amount that the budget item actually costs and is verified
-* verified - weather the budget item amount is verified as acurate
+* verified - weather the budget item amount is verified as accurate
 * tags - list of ```Tag``` that are associated with the budget item
 * type - the type of budget item. ```EXPENSE``` or ```INCOME```
 ###### Example
