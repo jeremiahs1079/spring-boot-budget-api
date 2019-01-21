@@ -6,6 +6,6 @@ import lombok.Data;
 public class Tag {
 
     //member variables
-    private int tagId;
-    private String tagName;
+    private int id;
+    private String name;
 }

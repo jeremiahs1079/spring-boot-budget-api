@@ -18,8 +18,8 @@ public class BudgetItemTest {
         this.testItem = new BudgetItem();
 
         this.testItem.setId(1);
-        this.expectedTag.setTagId(1);
-        this.expectedTag.setTagName("Test Tag Name");
+        this.expectedTag.setId(1);
+        this.expectedTag.setName("Test Tag Name");
     }
 
     @After
@@ -33,8 +33,8 @@ public class BudgetItemTest {
 
 
         Tag tagToAdd = new Tag();
-        tagToAdd.setTagName("Test Tag Name");
-        tagToAdd.setTagId(1);
+        tagToAdd.setName("Test Tag Name");
+        tagToAdd.setId(1);
 
         this.testItem.addTag(tagToAdd);
 
@@ -55,8 +55,8 @@ public class BudgetItemTest {
 
 
         Tag tagToAdd = new Tag();
-        tagToAdd.setTagName("Test Tag Name");
-        tagToAdd.setTagId(1);
+        tagToAdd.setName("Test Tag Name");
+        tagToAdd.setId(1);
 
         this.testItem.addTag(tagToAdd);
 
