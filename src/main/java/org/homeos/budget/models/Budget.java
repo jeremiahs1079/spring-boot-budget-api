@@ -66,6 +66,17 @@ public class Budget {
         return this.tags.contains(tag);
     }
 
+    public void updateBudgetInfo(Budget budget) {
+        if(this.equals(budget)){
+            this.name = budget.name;
+            this.startDate = budget.startDate;
+            this.endDate = budget.endDate;
+            this.tags = budget.tags;
+            this.budgetItems = budget.budgetItems;
+            this.completed = budget.completed;
+        }
+    }
+
 
 
     //override methods

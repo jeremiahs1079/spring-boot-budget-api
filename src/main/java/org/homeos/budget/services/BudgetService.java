@@ -11,6 +11,7 @@ public interface BudgetService {
     Budget createBudget();
     Budget addBudget(Budget budget);
     Budget getBudget(long budgetId);
+    void updateBudget(Budget budget);
     ArrayList<Budget> getBudgets();
     BudgetItem addBudgetItem(BudgetItem item, long budgetId);
     void addTag(Tag tag, long budgetId);

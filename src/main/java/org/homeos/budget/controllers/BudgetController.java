@@ -37,6 +37,13 @@ public class BudgetController {
         return this.budgetService.getBudget(budgetId);
     }
 
+    @PutMapping("{budgetId}")
+    public Budget updateBudget(@RequestBody Budget budget) {
+        this.budgetService.updateBudget(budget);
+
+        return this.budgetService.getBudget(budget.getId());
+    }
+
     @PostMapping("")
     public Budget addBudget() {
 
@@ -70,4 +77,5 @@ public class BudgetController {
         this.log.info("Attempting to add: {}", item);
         return this.budgetService.addBudgetItem(item, budgetId);
     }
+
 }

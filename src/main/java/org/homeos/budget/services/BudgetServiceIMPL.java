@@ -42,6 +42,14 @@ public class BudgetServiceIMPL implements BudgetService {
     }
 
     @Override
+    public void updateBudget(Budget budget) {
+        Budget budgetToUpdate = this.getBudget(budget.getId());
+
+        budgetToUpdate.updateBudgetInfo(budget);
+
+    }
+
+    @Override
     public ArrayList<Budget> getBudgets() {
         return this.budgets;
     }
