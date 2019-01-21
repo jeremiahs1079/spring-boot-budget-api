@@ -7,6 +7,7 @@ the creation and management of a house hold budget. It allows users to create ti
 ```
 GET /budget
 POST /budget
+GET /budget/{id}/items
 ```
 
 # Data Structures
