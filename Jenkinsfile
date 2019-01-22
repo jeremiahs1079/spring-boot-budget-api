@@ -22,5 +22,10 @@ pipeline {
             }
 
         }
+        stage('Create Docker Image') {
+            steps {
+                sh 'docker --version'
+            }
+        }
     }
 }
