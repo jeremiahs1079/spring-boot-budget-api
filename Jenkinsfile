@@ -27,5 +27,10 @@ pipeline {
                 sh 'mvn dockerfile:build'
             }
         }
+        stage('Push Docker Image') {
+            steps {
+                sh 'mvn dockerfile:push'
+            }
+        }
     }
 }

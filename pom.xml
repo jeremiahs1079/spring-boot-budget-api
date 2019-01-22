@@ -63,6 +63,9 @@
                 <version>1.4.9</version>
                 <configuration>
                     <repository>${docker.image.prefix}/${project.artifactId}</repository>
+                    <tag>latest</tag>
+                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                    <skip>false</skip>
                 </configuration>
             </plugin>
             <plugin>
