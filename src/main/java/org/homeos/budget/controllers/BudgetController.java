@@ -6,6 +6,7 @@ import org.homeos.budget.exceptions.BudgetNotFoundException;
 import org.homeos.budget.models.Budget;
 import org.homeos.budget.models.BudgetItem;
 import org.homeos.budget.services.BudgetService;
+import org.homeos.budget.services.KafkaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,9 @@ public class BudgetController {
 
     @Autowired
     private BudgetService budgetService;
+
+    @Autowired
+    private KafkaService kafkaService;
 
     @GetMapping("")
     public ArrayList<Budget> getBudgets() {
@@ -47,7 +51,11 @@ public class BudgetController {
     @PostMapping("")
     public Budget addBudget() {
 
-        return this.budgetService.createBudget();
+        Budget budget = this.budgetService.createBudget();
+
+        this.kafkaService.send("budget", budget);
+
+        return budget;
     }
 
     @PostMapping("add")
