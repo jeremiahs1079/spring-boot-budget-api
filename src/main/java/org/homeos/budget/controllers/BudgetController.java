@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 @RestController
 @Slf4j
-@RequestMapping("budget")
+@RequestMapping("api")
 public class BudgetController {
 
     @Autowired
@@ -24,12 +24,12 @@ public class BudgetController {
     @Autowired
     private KafkaService kafkaService;
 
-    @GetMapping("")
+    @GetMapping("budgets")
     public ArrayList<Budget> getBudgets() {
         return this.budgetService.getBudgets();
     }
 
-    @GetMapping("{budgetId}")
+    @GetMapping("budgets/{budgetId}")
     public Budget getBudget(@PathVariable long budgetId) {
 
         Budget budget = budgetService.getBudget(budgetId);
@@ -41,31 +41,21 @@ public class BudgetController {
         return this.budgetService.getBudget(budgetId);
     }
 
-    @PutMapping("{budgetId}")
+    @PutMapping("budgets/{budgetId}")
     public Budget updateBudget(@RequestBody Budget budget) {
         this.budgetService.updateBudget(budget);
 
         return this.budgetService.getBudget(budget.getId());
     }
 
-    @PostMapping("")
-    public Budget addBudget() {
-
-        Budget budget = this.budgetService.createBudget();
-
-        this.kafkaService.send("budget", budget);
-
-        return budget;
-    }
-
-    @PostMapping("add")
+    @PostMapping("budgets")
     public Budget addBudget(@RequestBody Budget budget) {
         log.info("Adding Budget");
         log.info("Budget to add {}", budget);
         return this.budgetService.addBudget(budget);
     }
 
-    @GetMapping("items/{budgetId}")
+    @GetMapping("budgets/{budgetId}/items")
     public ArrayList<BudgetItem> getBudgetItems(@PathVariable long  budgetId) {
         Budget budget = this.budgetService.getBudget(budgetId);
 
@@ -80,7 +70,7 @@ public class BudgetController {
         return budget.getBudgetItems();
     }
 
-    @PostMapping("items/{budgetId}/add")
+    @PostMapping("budgets/{budgetId}/items")
     public BudgetItem addBudgetItem(@RequestBody BudgetItem item, @PathVariable long budgetId) {
         this.log.info("Attempting to add: {}", item);
         return this.budgetService.addBudgetItem(item, budgetId);
